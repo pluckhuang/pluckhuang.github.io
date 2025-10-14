@@ -1,0 +1,118 @@
+/* Base styles for the blog */
+body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.8;
+    color: #333;
+    /* background-color: #f9f9f9; */
+    margin: 0;
+    padding: 0;
+    background-color: yellow !important;
+}
+
+/* Header styles */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Navigation bar */
+nav {
+    background-color: #444;
+    padding: 0.5rem 0;
+    text-align: center;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Blog post styles */
+article {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+article h1,
+article h2,
+article h3 {
+    color: #222;
+    margin-top: 1.5rem;
+}
+
+article p {
+    margin: 1rem 0;
+    text-align: justify;
+}
+
+article ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+article ul li {
+    margin: 0.5rem 0;
+}
+
+/* Footer styles */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 2rem;
+    font-size: 0.9rem;
+}
+
+/* Code block styles */
+pre {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-left: 4px solid #007acc;
+    overflow-x: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+code {
+    background: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+/* Image styles */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1rem auto;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    body {
+        font-size: 90%;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+    }
+
+    article {
+        padding: 1.5rem;
+    }
+}

@@ -29,6 +29,15 @@ github_username: jekyll
 
 # Build settings
 remote_theme: mmistakes/so-simple-theme@3.2.0
+
+# Add custom CSS to improve typography for both English and Chinese
+sass:
+  style: compressed
+
+# Custom head scripts (for loading custom CSS)
+head_scripts:
+  - /assets/css/custom.css
+
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
