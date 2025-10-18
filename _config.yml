@@ -34,10 +34,6 @@ remote_theme: mmistakes/so-simple-theme@3.2.0
 sass:
   style: compressed
 
-# Custom head scripts (for loading custom CSS)
-head_scripts:
-  - /assets/css/custom.css
-
 plugins:
   - jekyll-remote-theme
   - jekyll-seo-tag
