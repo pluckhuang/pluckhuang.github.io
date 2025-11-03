@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "基于 Chrome 的 Deepl 翻译插件"
+title:  "一个 Chrome 插件"
 date:   2025-10-26 10:12:00 +0800
 tags:
   - chrome
