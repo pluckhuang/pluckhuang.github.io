@@ -2,10 +2,7 @@
 layout: post
 title:  "一个基于 LangChain 1.0 和 Streamlit 的智能运维助手"
 date:   2025-11-03 18:12:00 +0800
-tags:
-  - LangChain
-  - rag
-  - llm
+tags: [技术]
 ---
 # 使用 langchain 1.0 (Agent, Tools + RAG) + 本地大模型 + 本地嵌入向量开发
 

@@ -2,8 +2,7 @@
 layout: post
 title:  "etcd 服务注册与发现内部 keeplived 原理"
 date:   2025-07-14 10:24:00 +0800
-tags:
-  - Golang
+tags: [技术]
 ---
 
 在 etcd 服务注册方 KeepAlive 机制中，主要是用一个 channel 接收 keepalive 响应, 其原理如下：
