@@ -3,18 +3,30 @@ layout: page
 permalink: /
 ---
 
-<div class="about-card">
-  <div class="about-avatar">P</div>
-  <div class="about-body">
-    <p class="about-name">pluckh</p>
-    <p class="about-bio">这是我的个人博客，记录技术、思考和生活。</p>
-    <nav class="about-links">
-      <a href="mailto:huangjiangbo.z@gmail.com">✉ Email</a>
-      <a href="https://github.com/pluckhuang" target="_blank" rel="noopener">⚙ GitHub</a>
-      <a href="https://douban.com/people/28360619" target="_blank" rel="noopener">◉ Douban</a>
-    </nav>
+<header class="site-hero">
+  <div class="hero-name">pluckh</div>
+  <p class="hero-bio">这是我的个人博客，记录技术、思考和生活。</p>
+  <nav class="hero-links">
+    <a href="mailto:huangjiangbo.z@gmail.com">Email</a>
+    <a href="https://github.com/pluckhuang" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://douban.com/people/28360619" target="_blank" rel="noopener">Douban</a>
+  </nav>
+</header>
+
+<section class="cat-section">
+  <h2 class="cat-title">最近<span class="cat-count">{{ site.posts.size }}</span></h2>
+  <div class="recent-list">
+    {% for post in site.posts limit:6 %}
+    <a href="{{ post.url | relative_url }}" class="recent-item">
+      <span class="recent-title">{{ post.title }}</span>
+      <span class="recent-meta">
+        <span class="recent-tag">{{ post.tags | first }}</span>
+        <time>{{ post.date | date: "%Y · %m" }}</time>
+      </span>
+    </a>
+    {% endfor %}
   </div>
-</div>
+</section>
 
 {% assign cat_list = "技术,云计算,思考,生活,文化" | split: "," %}
 
