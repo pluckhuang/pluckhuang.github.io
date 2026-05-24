@@ -14,16 +14,25 @@ permalink: /
 </header>
 
 <section class="cat-section">
-  <h2 class="cat-title">最近<span class="cat-count">{{ site.posts.size }}</span></h2>
+  <h2 class="cat-title">最近<span class="cat-count">5</span></h2>
   <div class="recent-list">
-    {% for post in site.posts limit:6 %}
-    <a href="{{ post.url | relative_url }}" class="recent-item">
-      <span class="recent-title">{{ post.title }}</span>
+    {% assign cat_list = "技术,云计算,思考,生活,文化" | split: "," %}
+    {% for cat in cat_list %}
+      {% assign latest = nil %}
+      {% for post in site.posts %}
+        {% if post.tags contains cat and latest == nil %}
+          {% assign latest = post %}
+        {% endif %}
+      {% endfor %}
+      {% if latest %}
+    <a href="{{ latest.url | relative_url }}" class="recent-item">
+      <span class="recent-title">{{ latest.title }}</span>
       <span class="recent-meta">
-        <span class="recent-tag">{{ post.tags | first }}</span>
-        <time>{{ post.date | date: "%Y · %m" }}</time>
+        <span class="recent-tag">{{ cat }}</span>
+        <time>{{ latest.date | date: "%Y · %m" }}</time>
       </span>
     </a>
+      {% endif %}
     {% endfor %}
   </div>
 </section>
