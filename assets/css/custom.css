@@ -571,13 +571,18 @@ th, td { border-bottom-color: var(--border) !important; }
 
 /* ── Responsive ──────────────────────────────────────────────────── */
 @media (max-width: 620px) {
-  .entries-list { grid-template-columns: 1fr !important; }
-  .entries-list .entry.h-entry:first-child { grid-column: 1; }
-  .entries-list .entry.h-entry:first-child .entry-title { font-size: 1.05em !important; }
-
   .hero-name { font-size: 2.6em; }
-  .recent-title { font-size: 0.9em; }
-  .recent-meta { display: none; }
+
+  .recent-item {
+    flex-wrap: wrap;
+    gap: 0.3em;
+  }
+  .recent-title { font-size: 0.9em; flex-basis: 100%; }
+  .recent-meta { font-size: 0.72em; }
+
+  .entries-list { padding-left: 4em; }
+  .entries-list::before { left: 2.6em; }
+  .entry.h-entry::after { left: -4em !important; width: 3em; font-size: 0.6em !important; }
 
   .entry-content, .page-content, article { font-size: 15.5px; }
   .entry-content h1, .page-content h1 { font-size: 1.55em; }
