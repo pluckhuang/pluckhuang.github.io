@@ -57,7 +57,7 @@ permalink: /
   <h2 class="cat-title">{{ current_cat }}<span class="cat-count">{{ cat_posts.size }}</span></h2>
   <div class="entries-list">
     {% for post in cat_posts %}
-    <article class="entry h-entry">
+    <article class="entry h-entry" data-date="{{ post.date | date: '%Y·%m' }}">
       <header class="entry-header">
         <h3 class="entry-title p-name">
           <a href="{{ post.url | relative_url }}" rel="bookmark">{{ post.title }}</a>
