@@ -13,42 +13,48 @@ permalink: /
   </nav>
 </header>
 
+{% comment %}
+  Build cat_latest: one representative (most recent) post per category,
+  sorted by date descending. This drives both the "最近" list order
+  and the category section order below.
+{% endcomment %}
+{% assign cat_list = "技术,云计算,思考,生活,文化" | split: "," %}
+{% assign cat_latest = "" | split: "" %}
+{% for cat in cat_list %}
+  {% for post in site.posts %}
+    {% if post.tags contains cat %}
+      {% assign cat_latest = cat_latest | push: post %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endfor %}
+{% assign cat_latest = cat_latest | sort: "date" | reverse %}
+
 <section class="cat-section">
-  <h2 class="cat-title">最近<span class="cat-count">5</span></h2>
+  <h2 class="cat-title">最近<span class="cat-count">{{ cat_latest.size }}</span></h2>
   <div class="recent-list">
-    {% assign cat_list = "技术,云计算,思考,生活,文化" | split: "," %}
-    {% for cat in cat_list %}
-      {% assign latest = nil %}
-      {% for post in site.posts %}
-        {% if post.tags contains cat and latest == nil %}
-          {% assign latest = post %}
-        {% endif %}
-      {% endfor %}
-      {% if latest %}
-    <a href="{{ latest.url | relative_url }}" class="recent-item">
-      <span class="recent-title">{{ latest.title }}</span>
+    {% for post in cat_latest %}
+    <a href="{{ post.url | relative_url }}" class="recent-item">
+      <span class="recent-title">{{ post.title }}</span>
       <span class="recent-meta">
-        <span class="recent-tag">{{ cat }}</span>
-        <time>{{ latest.date | date: "%Y · %m" }}</time>
+        <span class="recent-tag">{{ post.tags | first }}</span>
+        <time>{{ post.date | date: "%Y · %m" }}</time>
       </span>
     </a>
-      {% endif %}
     {% endfor %}
   </div>
 </section>
 
-{% assign cat_list = "技术,云计算,思考,生活,文化" | split: "," %}
-
-{% for cat in cat_list %}
+{% for latest_post in cat_latest %}
+  {% assign current_cat = latest_post.tags | first %}
   {% assign cat_posts = "" | split: "" %}
   {% for post in site.posts %}
-    {% if post.tags contains cat %}
+    {% if post.tags contains current_cat %}
       {% assign cat_posts = cat_posts | push: post %}
     {% endif %}
   {% endfor %}
-  {% if cat_posts.size > 0 %}
 <section class="cat-section">
-  <h2 class="cat-title">{{ cat }}<span class="cat-count">{{ cat_posts.size }}</span></h2>
+  <h2 class="cat-title">{{ current_cat }}<span class="cat-count">{{ cat_posts.size }}</span></h2>
   <div class="entries-list">
     {% for post in cat_posts %}
     <article class="entry h-entry">
@@ -66,5 +72,4 @@ permalink: /
     {% endfor %}
   </div>
 </section>
-  {% endif %}
 {% endfor %}
