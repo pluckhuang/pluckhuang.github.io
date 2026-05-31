@@ -4,6 +4,7 @@ title: About Me
 permalink: /about/
 ---
 这是我的个人博客，记录技术、思考和生活。
+相信: You're going to reap just what you sow.
 
 Mail: huangjiangbo.z@gmail.com \
 Github: [@pluckh](https://github.com/pluckhuang) \
