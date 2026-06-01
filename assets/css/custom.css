@@ -487,20 +487,29 @@ figure.highlight pre.highlight {
   box-shadow: none;
 }
 
-/* Tables */
-.entry-content table, .page-content table {
-  width: 100%; margin: 1.5em 0;
-  border-collapse: collapse; font-size: 0.92em;
+/* Tables — JS wraps each table in .table-scroll for horizontal scroll */
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 1.5em 0;
   border: 1px solid var(--text);
 }
+.entry-content table, .page-content table {
+  width: 100%;
+  margin: 0;
+  border-collapse: collapse;
+  font-size: 0.88em;
+  border: none;
+}
 .entry-content table th, .page-content table th {
-  background: var(--text); padding: 0.7em 1em;
+  background: var(--text); padding: 0.6em 0.9em;
   font-weight: 600; border: 1px solid var(--text) !important;
-  color: var(--bg);
+  color: var(--bg); white-space: nowrap;
 }
 .entry-content table td, .page-content table td {
-  padding: 0.65em 1em;
+  padding: 0.55em 0.9em;
   border: 1px solid var(--border) !important; color: var(--text);
+  word-break: break-word;
 }
 .entry-content table tr:nth-child(even), .page-content table tr:nth-child(even) {
   background: #f5f5f5;

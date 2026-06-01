@@ -1,6 +1,19 @@
 <!-- start custom head snippets -->
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="{{ '/assets/css/custom.css?v=3' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/custom.css?v=4' | relative_url }}">
+
+<!-- Wrap markdown tables in a scrollable div so they fill width AND scroll on narrow screens -->
+<script defer>
+document.addEventListener('DOMContentLoaded', function () {
+  var selectors = '.entry-content table, .page-content table';
+  document.querySelectorAll(selectors).forEach(function (table) {
+    var wrapper = document.createElement('div');
+    wrapper.className = 'table-scroll';
+    table.parentNode.insertBefore(wrapper, table);
+    wrapper.appendChild(table);
+  });
+});
+</script>
 
 <!-- end custom head snippets -->
